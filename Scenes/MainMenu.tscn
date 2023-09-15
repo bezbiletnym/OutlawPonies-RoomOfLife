@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwxfn51risogs"]
+
+[ext_resource type="PackedScene" uid="uid://d1psn6ujekqly" path="res://Scenes/scene_transition.tscn" id="1_suaav"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 536.0
+offset_top = 320.0
+offset_right = 824.0
+offset_bottom = 392.0
+text = "ИГРАТЬ"
+
+[node name="SceneTransition" parent="." instance=ExtResource("1_suaav")]

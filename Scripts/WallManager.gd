@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func _turnWall(direction):
+func _turnToWall(direction):
 	currentWall += direction
 	if currentWall > 4:
 		currentWall = 1
@@ -30,7 +30,7 @@ func check_visibility():
 			wall.visible = false
 			
 func _on_left_arrow__arrow_pressed():
-	_turnWall(-1)
+	_turnToWall(-1)
 
 func _on_right_arrow__arrow_pressed():
-	_turnWall(1)
+	_turnToWall(1)
