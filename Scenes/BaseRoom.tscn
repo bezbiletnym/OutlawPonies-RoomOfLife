@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://idn0n12031pq"]
+
+[ext_resource type="Script" path="res://Scripts/WallManager.gd" id="1_nroe0"]
+[ext_resource type="Texture2D" uid="uid://wyux7fhwimpu" path="res://Sprites/arrow.png" id="2_nvtel"]
+[ext_resource type="Script" path="res://Scripts/ArrowScript.gd" id="3_fkkqb"]
+
+[node name="Room" type="Node2D"]
+
+[node name="Walls" type="Control" parent="." node_paths=PackedStringArray("walls")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("1_nroe0")
+walls = [NodePath("Wall1"), NodePath("Wall2"), NodePath("Wall3"), NodePath("Wall4")]
+currentWall = 1
+
+[node name="Wall1" type="Control" parent="Walls"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="Walls/Wall1"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.227451, 0.360784, 0.392157, 1)
+
+[node name="Label" type="Label" parent="Walls/Wall1"]
+offset_left = 616.0
+offset_top = 280.0
+offset_right = 673.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="Wall2" type="Control" parent="Walls"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ColorRect2" type="ColorRect" parent="Walls/Wall2"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.192157, 0.392157, 0.168627, 1)
+
+[node name="Label" type="Label" parent="Walls/Wall2"]
+offset_left = 616.0
+offset_top = 280.0
+offset_right = 673.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 100
+text = "2"
+
+[node name="Wall3" type="Control" parent="Walls"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ColorRect2" type="ColorRect" parent="Walls/Wall3"]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.403922, 0.32549, 0.121569, 1)
+
+[node name="Label" type="Label" parent="Walls/Wall3"]
+offset_left = 616.0
+offset_top = 280.0
+offset_right = 673.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 100
+text = "3"
+
+[node name="Wall4" type="Control" parent="Walls"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ColorRect2" type="ColorRect" parent="Walls/Wall4"]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.513726, 0.247059, 0.203922, 1)
+
+[node name="Label" type="Label" parent="Walls/Wall4"]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 280.0
+offset_right = 673.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 100
+text = "4"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LeftArrow" type="TextureButton" parent="CanvasLayer"]
+offset_left = 64.0
+offset_top = 296.0
+offset_right = 1088.0
+offset_bottom = 1320.0
+scale = Vector2(0.117188, 0.117188)
+texture_normal = ExtResource("2_nvtel")
+script = ExtResource("3_fkkqb")
+
+[node name="RightArrow" type="TextureButton" parent="CanvasLayer"]
+offset_left = 1096.0
+offset_top = 296.0
+offset_right = 2120.0
+offset_bottom = 1320.0
+scale = Vector2(0.117188, 0.117188)
+texture_normal = ExtResource("2_nvtel")
+flip_h = true
+script = ExtResource("3_fkkqb")
+
+[connection signal="_arrowPressed" from="CanvasLayer/LeftArrow" to="Walls" method="_on_left_arrow__arrow_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftArrow" to="CanvasLayer/LeftArrow" method="_on_pressed"]
+[connection signal="_arrowPressed" from="CanvasLayer/RightArrow" to="Walls" method="_on_right_arrow__arrow_pressed"]
+[connection signal="pressed" from="CanvasLayer/RightArrow" to="CanvasLayer/RightArrow" method="_on_pressed"]
