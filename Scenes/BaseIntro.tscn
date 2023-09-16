@@ -1,9 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://dljwsjpl84nee"]
+[gd_scene load_steps=11 format=3 uid="uid://dljwsjpl84nee"]
 
-[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="1_0vpht"]
-[ext_resource type="Texture2D" uid="uid://cdedh5m82i7mk" path="res://Sprites/ChildRoom/Child_scene_1_background.jpg" id="1_3rf2h"]
-[ext_resource type="Texture2D" uid="uid://xjy84q8avlnc" path="res://Sprites/ChildRoom/Child_bear_asset.png" id="2_72oxu"]
-[ext_resource type="Script" path="res://Scenes/ActivationButton.gd" id="3_3mnc8"]
+[ext_resource type="Texture2D" uid="uid://cdedh5m82i7mk" path="res://Sprites/ChildRoom/Child_scene_1_background.jpg" id="1_bcxhy"]
+[ext_resource type="Script" path="res://Scripts/ActivationButton.gd" id="1_qyoc6"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="2_1j67x"]
+[ext_resource type="Texture2D" uid="uid://bmd1nh5hfosca" path="res://Sprites/ChildRoom/Child_scene_1_background_ref.jpg" id="2_uf5qh"]
+[ext_resource type="Texture2D" uid="uid://xjy84q8avlnc" path="res://Sprites/ChildRoom/Child_bear_asset.png" id="3_ochpp"]
+[ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="3_y3hek"]
+[ext_resource type="PackedScene" uid="uid://idn0n12031pq" path="res://Scenes/BaseRoom.tscn" id="4_xhig3"]
+
+[sub_resource type="Animation" id="Animation_h4008"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
 
 [sub_resource type="Animation" id="Animation_6ci1x"]
 resource_name = "hover"
@@ -19,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.515, 0.515)]
-}
-
-[sub_resource type="Animation" id="Animation_h4008"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vp8y6"]
@@ -56,12 +59,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_3rf2h")
+texture = ExtResource("1_bcxhy")
+
+[node name="TextureRef" type="TextureRect" parent="Wall"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_uf5qh")
 
 [node name="Bear" type="Sprite2D" parent="."]
 position = Vector2(593, 496)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_72oxu")
+texture = ExtResource("3_ochpp")
 
 [node name="GoalButton" type="TextureButton" parent="Bear" node_paths=PackedStringArray("anim_player")]
 offset_left = -178.0
@@ -69,7 +80,7 @@ offset_top = -384.0
 offset_right = 686.0
 offset_bottom = 992.0
 scale = Vector2(0.5, 0.5)
-script = ExtResource("3_3mnc8")
+script = ExtResource("1_qyoc6")
 anim_player = NodePath("AnimationPlayer")
 isGoal = true
 
@@ -79,18 +90,16 @@ libraries = {
 "": SubResource("AnimationLibrary_vp8y6")
 }
 
-[node name="SceneTransition" parent="." instance=ExtResource("1_0vpht")]
-unique_name_in_owner = true
-offset_left = -80.0
-offset_top = -56.0
-offset_right = 1392.0
-offset_bottom = 776.0
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="SceneTransition" parent="." instance=ExtResource("2_1j67x")]
+unique_name_in_owner = true
+script = ExtResource("3_y3hek")
+next_scene = ExtResource("4_xhig3")
 
 [connection signal="mouse_entered" from="Bear/GoalButton" to="Bear/GoalButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bear/GoalButton" to="Bear/GoalButton" method="_on_mouse_exited"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://idn0n12031pq"]
+[gd_scene load_steps=6 format=3 uid="uid://idn0n12031pq"]
 
-[ext_resource type="Script" path="res://Scripts/WallManager.gd" id="1_nroe0"]
-[ext_resource type="Texture2D" uid="uid://wyux7fhwimpu" path="res://Sprites/arrow.png" id="2_nvtel"]
-[ext_resource type="Script" path="res://Scripts/ArrowScript.gd" id="3_fkkqb"]
-[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="4_4m6nk"]
+[ext_resource type="Script" path="res://Scripts/WallManager.gd" id="1_hafta"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="2_ollqm"]
+[ext_resource type="Texture2D" uid="uid://wyux7fhwimpu" path="res://Sprites/arrow.png" id="2_rrdd6"]
+[ext_resource type="Script" path="res://Scripts/ArrowScript.gd" id="3_cckgv"]
+[ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="3_fme5s"]
 
 [node name="Room" type="Node2D"]
 
@@ -12,7 +13,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-script = ExtResource("1_nroe0")
+script = ExtResource("1_hafta")
 walls = [NodePath("Wall1"), NodePath("Wall2"), NodePath("Wall3"), NodePath("Wall4")]
 currentWall = 1
 
@@ -132,8 +133,8 @@ offset_top = 296.0
 offset_right = 1088.0
 offset_bottom = 1320.0
 scale = Vector2(0.117188, 0.117188)
-texture_normal = ExtResource("2_nvtel")
-script = ExtResource("3_fkkqb")
+texture_normal = ExtResource("2_rrdd6")
+script = ExtResource("3_cckgv")
 
 [node name="RightArrow" type="TextureButton" parent="CanvasLayer"]
 offset_left = 1096.0
@@ -141,12 +142,12 @@ offset_top = 296.0
 offset_right = 2120.0
 offset_bottom = 1320.0
 scale = Vector2(0.117188, 0.117188)
-texture_normal = ExtResource("2_nvtel")
+texture_normal = ExtResource("2_rrdd6")
 flip_h = true
-script = ExtResource("3_fkkqb")
+script = ExtResource("3_cckgv")
 
-[node name="SceneTransition" parent="." instance=ExtResource("4_4m6nk")]
-visible = false
+[node name="SceneTransition" parent="." instance=ExtResource("2_ollqm")]
+script = ExtResource("3_fme5s")
 
 [connection signal="_arrowPressed" from="CanvasLayer/LeftArrow" to="Walls" method="_on_left_arrow__arrow_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftArrow" to="CanvasLayer/LeftArrow" method="_on_pressed"]

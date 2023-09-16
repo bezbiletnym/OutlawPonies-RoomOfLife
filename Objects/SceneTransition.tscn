@@ -1,7 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://gju0rb3k67eb"]
-
-[ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="1_hk2tc"]
-[ext_resource type="PackedScene" uid="uid://idn0n12031pq" path="res://Scenes/BaseRoom.tscn" id="2_s28e1"]
+[gd_scene load_steps=4 format=3 uid="uid://gju0rb3k67eb"]
 
 [sub_resource type="Animation" id="Animation_gi4rv"]
 length = 0.001
@@ -45,8 +42,6 @@ modulate = Color(1, 1, 1, 0)
 offset_right = 1472.0
 offset_bottom = 832.0
 color = Color(0, 0, 0, 1)
-script = ExtResource("1_hk2tc")
-next_scene = ExtResource("2_s28e1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
