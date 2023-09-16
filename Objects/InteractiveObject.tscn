@@ -45,7 +45,7 @@ position = Vector2(593, 496)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ktsid")
 
-[node name="GoalButton" type="TextureButton" parent="." node_paths=PackedStringArray("anim_player")]
+[node name="Button" type="TextureButton" parent="." node_paths=PackedStringArray("anim_player")]
 offset_left = -178.0
 offset_top = -384.0
 offset_right = 686.0
@@ -55,12 +55,12 @@ script = ExtResource("2_8law8")
 anim_player = NodePath("AnimationPlayer")
 isGoal = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GoalButton"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_vp8y6")
 }
 
-[connection signal="mouse_entered" from="GoalButton" to="GoalButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="GoalButton" to="GoalButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="GoalButton" to="GoalButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
