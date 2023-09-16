@@ -1,6 +1,7 @@
+AudioStreamPlayer
+Sprite2D
 Control
 AnimationPlayer
-Sprite2D
 TextureRect
 TextureButton
 ColorRect

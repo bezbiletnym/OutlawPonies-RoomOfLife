@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dljmagkqd14d0"]
+[gd_scene load_steps=5 format=3 uid="uid://di4q12vyggwbe"]
 
-[ext_resource type="Texture2D" uid="uid://xjy84q8avlnc" path="res://Sprites/ChildRoom/Child_bear_asset.png" id="1_ktsid"]
-[ext_resource type="Script" path="res://Scripts/ActivationButton.gd" id="2_8law8"]
+[ext_resource type="Script" path="res://Scripts/ActivationButton.gd" id="1_jhors"]
 
 [sub_resource type="Animation" id="Animation_h4008"]
 length = 0.001
@@ -40,27 +39,24 @@ _data = {
 "hover": SubResource("Animation_6ci1x")
 }
 
-[node name="Sprite" type="Sprite2D"]
-position = Vector2(593, 496)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ktsid")
-
-[node name="Button" type="TextureButton" parent="." node_paths=PackedStringArray("anim_player")]
+[node name="Button" type="TextureButton" node_paths=PackedStringArray("anim_player")]
 offset_left = -178.0
 offset_top = -384.0
 offset_right = 686.0
 offset_bottom = 992.0
 scale = Vector2(0.5, 0.5)
-script = ExtResource("2_8law8")
+script = ExtResource("1_jhors")
 anim_player = NodePath("AnimationPlayer")
 isGoal = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Button"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_vp8y6")
 }
 
-[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
