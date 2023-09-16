@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwxfn51risogs"]
+[gd_scene load_steps=6 format=3 uid="uid://cwxfn51risogs"]
 
 [ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="1_8ux82"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ev5w1"]
+[ext_resource type="FontFile" uid="uid://dpwclrrqhwitx" path="res://Fonts/QuinqueFive.ttf" id="2_8xx66"]
 [ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="2_i38bs"]
 [ext_resource type="PackedScene" uid="uid://dljwsjpl84nee" path="res://Scenes/BaseIntro.tscn" id="3_4f7sm"]
 
@@ -13,7 +14,9 @@ offset_left = 536.0
 offset_top = 320.0
 offset_right = 824.0
 offset_bottom = 392.0
-text = "ИГРАТЬ"
+theme_override_fonts/font = ExtResource("2_8xx66")
+theme_override_font_sizes/font_size = 64
+text = " ИГРАТЬ "
 
 [node name="SceneTransition" parent="." instance=ExtResource("1_8ux82")]
 script = ExtResource("2_i38bs")
