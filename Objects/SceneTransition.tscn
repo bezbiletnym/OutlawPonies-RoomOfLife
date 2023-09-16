@@ -41,7 +41,6 @@ _data = {
 }
 
 [node name="SceneTransition" type="ColorRect"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 offset_right = 1472.0
 offset_bottom = 832.0

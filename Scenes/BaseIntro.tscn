@@ -1,8 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://dljwsjpl84nee"]
+[gd_scene load_steps=8 format=3 uid="uid://dljwsjpl84nee"]
 
 [ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="1_0vpht"]
-[ext_resource type="Texture2D" uid="uid://dv3ufe8wn467q" path="res://icon.svg" id="1_61dba"]
-[ext_resource type="Script" path="res://Scenes/GoalButton.gd" id="1_go07b"]
+[ext_resource type="Texture2D" uid="uid://cdedh5m82i7mk" path="res://Sprites/ChildRoom/Child_scene_1_background.jpg" id="1_3rf2h"]
+[ext_resource type="Texture2D" uid="uid://xjy84q8avlnc" path="res://Sprites/ChildRoom/Child_bear_asset.png" id="2_72oxu"]
+[ext_resource type="Script" path="res://Scenes/ActivationButton.gd" id="3_3mnc8"]
+
+[sub_resource type="Animation" id="Animation_6ci1x"]
+resource_name = "hover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.515, 0.515)]
+}
+
+[sub_resource type="Animation" id="Animation_h4008"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vp8y6"]
+_data = {
+"RESET": SubResource("Animation_h4008"),
+"hover": SubResource("Animation_6ci1x")
+}
 
 [node name="BaseIntro" type="Node2D"]
 
@@ -13,28 +51,33 @@ anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="ColorRect" type="ColorRect" parent="Wall"]
+[node name="TextureRect" type="TextureRect" parent="Wall"]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-color = Color(0.796078, 0.513726, 0.815686, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3rf2h")
 
-[node name="Label" type="Label" parent="Wall"]
-layout_mode = 0
-offset_left = 488.0
-offset_top = 272.0
-offset_right = 806.0
-offset_bottom = 412.0
-theme_override_font_sizes/font_size = 100
-text = "Интро"
+[node name="Bear" type="Sprite2D" parent="."]
+position = Vector2(593, 496)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_72oxu")
 
-[node name="GoalButton" type="TextureButton" parent="."]
-offset_left = 880.0
-offset_top = 448.0
-offset_right = 1008.0
-offset_bottom = 576.0
-texture_normal = ExtResource("1_61dba")
-script = ExtResource("1_go07b")
+[node name="GoalButton" type="TextureButton" parent="Bear" node_paths=PackedStringArray("anim_player")]
+offset_left = -178.0
+offset_top = -384.0
+offset_right = 686.0
+offset_bottom = 992.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_3mnc8")
+anim_player = NodePath("AnimationPlayer")
+isGoal = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bear/GoalButton"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_vp8y6")
+}
 
 [node name="SceneTransition" parent="." instance=ExtResource("1_0vpht")]
 unique_name_in_owner = true
@@ -43,4 +86,12 @@ offset_top = -56.0
 offset_right = 1392.0
 offset_bottom = 776.0
 
-[connection signal="pressed" from="GoalButton" to="GoalButton" method="_on_pressed"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="mouse_entered" from="Bear/GoalButton" to="Bear/GoalButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bear/GoalButton" to="Bear/GoalButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Bear/GoalButton" to="Bear/GoalButton" method="_on_pressed"]

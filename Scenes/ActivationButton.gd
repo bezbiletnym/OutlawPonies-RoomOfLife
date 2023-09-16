@@ -1,5 +1,7 @@
 extends TextureButton
 
+@export var anim_player: AnimationPlayer
+@export var isGoal: bool
 @onready var sceneManager = get_node("%SceneTransition")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,5 +13,14 @@ func _process(delta):
 	pass
 
 
+func _on_mouse_entered():
+	anim_player.play("hover")
+
+
+func _on_mouse_exited():
+	anim_player.play_backwards("hover")
+
+
 func _on_pressed():
-	sceneManager.transition_to()
+	if isGoal == true:
+		sceneManager.transition_to()
