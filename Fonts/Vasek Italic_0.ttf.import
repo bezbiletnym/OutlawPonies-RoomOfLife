@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://fa8jut3q0rsj"
+path="res://.godot/imported/Vasek Italic_0.ttf-7f32c1cce32296d3e06658c6e4de4f46.fontdata"
+
+[deps]
+
+source_file="res://Fonts/Vasek Italic_0.ttf"
+dest_files=["res://.godot/imported/Vasek Italic_0.ttf-7f32c1cce32296d3e06658c6e4de4f46.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
