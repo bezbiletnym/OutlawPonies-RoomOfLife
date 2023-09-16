@@ -146,7 +146,7 @@ flip_h = true
 script = ExtResource("3_fkkqb")
 
 [node name="SceneTransition" parent="." instance=ExtResource("4_4m6nk")]
-visible = true
+visible = false
 
 [connection signal="_arrowPressed" from="CanvasLayer/LeftArrow" to="Walls" method="_on_left_arrow__arrow_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftArrow" to="CanvasLayer/LeftArrow" method="_on_pressed"]
