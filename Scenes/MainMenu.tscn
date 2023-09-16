@@ -1,25 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwxfn51risogs"]
+[gd_scene load_steps=8 format=3 uid="uid://cwxfn51risogs"]
 
 [ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="1_8ux82"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ev5w1"]
-[ext_resource type="FontFile" uid="uid://dpwclrrqhwitx" path="res://Fonts/QuinqueFive.ttf" id="2_8xx66"]
 [ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="2_i38bs"]
+[ext_resource type="FontFile" uid="uid://ve0tvh1e6ewb" path="res://Fonts/CoopBlack_Cyrillic_0.ttf" id="2_wdkoo"]
 [ext_resource type="PackedScene" uid="uid://dljwsjpl84nee" path="res://Scenes/BaseIntro.tscn" id="3_4f7sm"]
+[ext_resource type="Texture2D" uid="uid://fydo1ngpu35o" path="res://Sprites/logo-no-background.png" id="6_tbrkt"]
+[ext_resource type="AudioStream" uid="uid://b16jw7hjun1t7" path="res://Audio/main_theme.mp3" id="7_wdrxi"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ev5w1")
 
 [node name="PlayButton" type="Button" parent="."]
-offset_left = 312.0
-offset_top = 296.0
-offset_right = 936.0
-offset_bottom = 378.0
-theme_override_fonts/font = ExtResource("2_8xx66")
+offset_left = 536.0
+offset_top = 320.0
+offset_right = 824.0
+offset_bottom = 392.0
+theme_override_fonts/font = ExtResource("2_wdkoo")
 theme_override_font_sizes/font_size = 64
 text = " ИГРАТЬ "
 
 [node name="SceneTransition" parent="." instance=ExtResource("1_8ux82")]
+offset_top = 8.0
+offset_bottom = 840.0
 script = ExtResource("2_i38bs")
 next_scene = ExtResource("3_4f7sm")
+
+[node name="Logo-no-background" type="Sprite2D" parent="."]
+position = Vector2(93, 83)
+scale = Vector2(0.134, 0.152655)
+texture = ExtResource("6_tbrkt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_wdrxi")
+autoplay = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
