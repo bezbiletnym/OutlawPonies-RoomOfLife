@@ -4,3 +4,7 @@ res://Scripts/WallManager.gd
 res://Scenes/MainMenu.tscn
 res://Scenes/BaseRoom.tscn
 res://Objects/SceneTransition.tscn
+res://Objects/InteractiveObject.tscn
+res://Scripts/ActivationButton.gd
+res://Scripts/Menu.gd
+res://Scripts/new_script.gd

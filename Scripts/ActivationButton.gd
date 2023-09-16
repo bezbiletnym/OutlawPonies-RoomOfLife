@@ -2,7 +2,7 @@ extends TextureButton
 
 @export var anim_player: AnimationPlayer
 @export var isGoal: bool
-@onready var sceneManager = get_node("%SceneTransition")
+@onready var sceneManager = get_node("/root/Room/SceneTransition") #Верхняя нода всех комнат и вступлений должна называться Room
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
