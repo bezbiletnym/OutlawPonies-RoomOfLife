@@ -1,11 +1,11 @@
+Sprite2D
+TextureRect
 ColorRect
 TextureButton
 Label
 AudioStreamPlayer
-Sprite2D
 Control
 AnimationPlayer
-TextureRect
 CanvasLayer
 Button
 CollisionShape2D
