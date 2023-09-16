@@ -1,0 +1,10 @@
+res://Scenes/MainMenu.tscn
+res://Scripts/SceneTransition.gd
+res://Scenes/Menu.gd
+res://Scenes/BaseRoom.tscn
+res://Scenes/scene_transition.tscn
+res://Scripts/WallManager.gd
+res://Objects/SceneTransition.tscn
+res://Scenes/BaseIntro.tscn
+res://Scenes/GoalButton.gd
+res://Scenes/ActivationButton.gd

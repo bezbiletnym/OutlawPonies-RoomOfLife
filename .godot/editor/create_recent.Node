@@ -1,0 +1,12 @@
+Control
+AnimationPlayer
+Sprite2D
+TextureRect
+TextureButton
+ColorRect
+CanvasLayer
+Button
+Label
+CollisionShape2D
+Area2D
+Node2D
