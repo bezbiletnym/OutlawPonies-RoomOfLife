@@ -1,13 +1,13 @@
+ColorRect
+TextureButton
+Label
 AudioStreamPlayer
 Sprite2D
 Control
 AnimationPlayer
 TextureRect
-TextureButton
-ColorRect
 CanvasLayer
 Button
-Label
 CollisionShape2D
 Area2D
 Node2D

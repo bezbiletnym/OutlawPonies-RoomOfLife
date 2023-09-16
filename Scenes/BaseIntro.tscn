@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="3_y3hek"]
 [ext_resource type="PackedScene" uid="uid://di4q12vyggwbe" path="res://Objects/Button.tscn" id="4_ohqu4"]
 [ext_resource type="PackedScene" uid="uid://idn0n12031pq" path="res://Scenes/BaseRoom.tscn" id="4_xhig3"]
-[ext_resource type="AudioStream" uid="uid://cb7f6fcafavkg" path="res://Audio/monkey_easter.wav" id="5_8vxm4"]
+[ext_resource type="PackedScene" uid="uid://bcmwecja0v2g0" path="res://Objects/Dialog.tscn" id="5_r7mlv"]
 
 [node name="Room" type="Node2D"]
 
@@ -44,9 +44,11 @@ position = Vector2(592, 496)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ochpp")
 
-[node name="Button" parent="Bear" instance=ExtResource("4_ohqu4")]
-actions = Array[String](["sound"])
-soundFile = ExtResource("5_8vxm4")
+[node name="Button" parent="Bear" node_paths=PackedStringArray("dialog") instance=ExtResource("4_ohqu4")]
+actions = Array[String](["sound", "dialog"])
+dialog = NodePath("../../Dialog")
+
+[node name="Dialog" parent="." instance=ExtResource("5_r7mlv")]
 
 [node name="SceneTransition" parent="." instance=ExtResource("2_1j67x")]
 unique_name_in_owner = true

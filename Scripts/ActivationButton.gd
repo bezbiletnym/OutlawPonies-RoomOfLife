@@ -7,6 +7,7 @@ class_name InteractiveObject
 @export var soundFile: Resource
 @onready var sceneManager = get_node("/root/Room/SceneTransition") #Верхняя нода всех комнат и вступлений должна называться Room
 @onready var audio = $AudioStreamPlayer
+@export var dialog: Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if soundFile:
@@ -30,6 +31,8 @@ func _on_pressed():
 		match action:
 			"sound":
 				await play_sound()
+			"dialog":
+				await show_dialog()
 
 	if isGoal == true:
 		sceneManager.transition_to()
@@ -41,3 +44,9 @@ func play_sound():
 		await audio.finished
 	else:
 		print_debug("NO AUDIO")
+
+func show_dialog():
+	if dialog:
+		await dialog.show_dialog()
+	else:
+		print_debug("NO_DIALOG")
