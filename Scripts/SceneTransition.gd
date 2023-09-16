@@ -17,10 +17,6 @@ func transition_to():
 	self.visible = true
 	anim_player.play("transition")
 
-func _on_play_button_pressed():
-	transition_to()
-
-
 func _on_animation_player_animation_finished(anim_name):
 	transit = !transit
 	self.visible = false

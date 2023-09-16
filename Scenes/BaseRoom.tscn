@@ -29,6 +29,7 @@ offset_bottom = 720.0
 color = Color(0.227451, 0.360784, 0.392157, 1)
 
 [node name="Label" type="Label" parent="Walls/Wall1"]
+layout_mode = 0
 offset_left = 616.0
 offset_top = 280.0
 offset_right = 673.0
@@ -50,6 +51,7 @@ offset_bottom = 720.0
 color = Color(0.192157, 0.392157, 0.168627, 1)
 
 [node name="Label" type="Label" parent="Walls/Wall2"]
+layout_mode = 0
 offset_left = 616.0
 offset_top = 280.0
 offset_right = 673.0
@@ -65,11 +67,13 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="ColorRect2" type="ColorRect" parent="Walls/Wall3"]
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.403922, 0.32549, 0.121569, 1)
 
 [node name="Label" type="Label" parent="Walls/Wall3"]
+layout_mode = 0
 offset_left = 616.0
 offset_top = 280.0
 offset_right = 673.0
@@ -85,6 +89,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="ColorRect2" type="ColorRect" parent="Walls/Wall4"]
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.513726, 0.247059, 0.203922, 1)
