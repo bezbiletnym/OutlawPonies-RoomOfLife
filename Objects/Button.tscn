@@ -1,7 +1,5 @@
 [gd_scene load_steps=5 format=3 uid="uid://di4q12vyggwbe"]
 
-[ext_resource type="Script" path="res://Scripts/ActivationButton.gd" id="1_jhors"]
-
 [sub_resource type="Animation" id="Animation_h4008"]
 length = 0.001
 tracks/0/type = "value"
@@ -45,7 +43,6 @@ offset_top = -384.0
 offset_right = 686.0
 offset_bottom = 992.0
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_jhors")
 anim_player = NodePath("AnimationPlayer")
 isGoal = true
 

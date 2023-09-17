@@ -1,14 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://dljwsjpl84nee"]
 
-[ext_resource type="Texture2D" uid="uid://cdedh5m82i7mk" path="res://Sprites/ChildRoom/Child_scene_1_background.jpg" id="1_bcxhy"]
-[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="2_1j67x"]
-[ext_resource type="Texture2D" uid="uid://bmd1nh5hfosca" path="res://Sprites/ChildRoom/Child_scene_1_background_ref.jpg" id="2_uf5qh"]
-[ext_resource type="Texture2D" uid="uid://xjy84q8avlnc" path="res://Sprites/ChildRoom/Child_bear_asset.png" id="3_ochpp"]
-[ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="3_y3hek"]
-[ext_resource type="PackedScene" uid="uid://di4q12vyggwbe" path="res://Objects/Button.tscn" id="4_ohqu4"]
-[ext_resource type="PackedScene" uid="uid://idn0n12031pq" path="res://Scenes/BaseRoom.tscn" id="4_xhig3"]
-[ext_resource type="PackedScene" uid="uid://bcmwecja0v2g0" path="res://Objects/Dialog.tscn" id="5_r7mlv"]
-
 [node name="Room" type="Node2D"]
 
 [node name="Wall" type="Control" parent="."]
@@ -23,7 +14,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_bcxhy")
 
 [node name="TextureRef" type="TextureRect" parent="Wall"]
 visible = false
@@ -31,7 +21,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_uf5qh")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -42,15 +31,7 @@ offset_bottom = 40.0
 [node name="Bear" type="Sprite2D" parent="."]
 position = Vector2(592, 496)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_ochpp")
 
-[node name="Button" parent="Bear" node_paths=PackedStringArray("dialog") instance=ExtResource("4_ohqu4")]
+[node name="Button" parent="Bear" node_paths=PackedStringArray("dialog")]
 actions = Array[String](["sound", "dialog"])
 dialog = NodePath("../../Dialog")
-
-[node name="Dialog" parent="." instance=ExtResource("5_r7mlv")]
-
-[node name="SceneTransition" parent="." instance=ExtResource("2_1j67x")]
-unique_name_in_owner = true
-script = ExtResource("3_y3hek")
-next_scene = ExtResource("4_xhig3")

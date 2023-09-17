@@ -1,12 +1,3 @@
-res://Scenes/BaseIntro.tscn
+res://Scenes/MainMenu.tscn
 res://Scripts/SceneTransition.gd
 res://Scripts/WallManager.gd
-res://Scenes/MainMenu.tscn
-res://Scenes/BaseRoom.tscn
-res://Objects/SceneTransition.tscn
-res://Objects/InteractiveObject.tscn
-res://Scripts/ActivationButton.gd
-res://Scripts/Menu.gd
-res://Scripts/new_script.gd
-res://Objects/Button.tscn
-res://Scripts/Dialog.gd
