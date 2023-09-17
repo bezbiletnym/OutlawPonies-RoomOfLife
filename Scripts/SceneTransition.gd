@@ -9,10 +9,6 @@ func _ready():
 	transit = true
 	anim_player.play_backwards("transition")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func transition_to():
 	self.visible = true
 	anim_player.play("transition")

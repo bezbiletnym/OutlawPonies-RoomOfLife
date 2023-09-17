@@ -205,22 +205,22 @@ offset_bottom = 40.0
 [node name="CatDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
 layout_mode = 0
 speakerName = "Кошечка"
-dialogText = Array[String](["мяяяу"])
+dialogText = Array[String](["*звуки мяукания*"])
 
 [node name="TigerDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
 layout_mode = 0
 speakerName = "Тигр"
-dialogText = Array[String](["ррррр"])
+dialogText = Array[String](["*звуки рычания*"])
 
 [node name="GoatDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
 layout_mode = 0
 speakerName = "Козочка"
-dialogText = Array[String](["бееее"])
+dialogText = Array[String](["*звуки блеяния*"])
 
 [node name="MonkeyDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
 layout_mode = 0
 speakerName = "Обезъянка"
-dialogText = Array[String](["уаааа"])
+dialogText = Array[String](["*звуки угукания*"])
 
 [node name="SceneTransition" parent="." instance=ExtResource("7_iiu4h")]
 visible = false

@@ -7,11 +7,6 @@ func _ready():
 	print_debug("Current wall is ", currentWall)
 	check_visibility()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _turnToWall(direction):
 	currentWall += direction
 	if currentWall > 4:
