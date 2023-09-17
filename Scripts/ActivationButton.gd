@@ -8,6 +8,7 @@ class_name InteractiveObject
 @onready var audio = $AudioStreamPlayer
 @onready var anim_player = $AnimationPlayer
 @export var dialog: Node
+@export var zoomScreen: Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if soundFile:
@@ -48,4 +49,7 @@ func show_dialog():
 		print_debug("NO_DIALOG")
 
 func show_zoom():
-	pass
+	if zoomScreen:
+		await zoomScreen.show_zoom()
+	else:
+		print_debug("NO_DIALOG")

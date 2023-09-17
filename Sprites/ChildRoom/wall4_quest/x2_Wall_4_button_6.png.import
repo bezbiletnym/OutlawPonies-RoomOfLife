@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ie5lsabyy1x"
-path="res://.godot/imported/Wall_4_button_1.png-3a023c3c0ea3854867c5933df3da2866.ctex"
+uid="uid://c8l64fcvckdfj"
+path="res://.godot/imported/x2_Wall_4_button_6.png-6e79a0b21065e7ad6eaedfe64312befc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ChildRoom/wall4_quest/Wall_4_button_1.png"
-dest_files=["res://.godot/imported/Wall_4_button_1.png-3a023c3c0ea3854867c5933df3da2866.ctex"]
+source_file="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_6.png"
+dest_files=["res://.godot/imported/x2_Wall_4_button_6.png-6e79a0b21065e7ad6eaedfe64312befc.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://idn0n12031pq"]
+[gd_scene load_steps=24 format=3 uid="uid://idn0n12031pq"]
 
 [ext_resource type="Script" path="res://Scripts/WallManager.gd" id="1_0p5fu"]
 [ext_resource type="Texture2D" uid="uid://cfd28qoq4s85k" path="res://Sprites/ChildRoom/Child_Wall_1.jpg" id="2_emfwi"]
@@ -15,8 +15,13 @@
 [ext_resource type="AudioStream" uid="uid://qwr5hh3v1jt5" path="res://Audio/goat.wav" id="12_1jwy6"]
 [ext_resource type="Texture2D" uid="uid://dgkvckl11awia" path="res://Sprites/ChildRoom/Child_tiger.png" id="13_pf2dk"]
 [ext_resource type="AudioStream" uid="uid://dgidwp0445dfw" path="res://Audio/tiger.wav" id="14_ngphw"]
-[ext_resource type="Texture2D" uid="uid://ourpeu342o7m" path="res://Sprites/arrow_nobck.png" id="15_abmyg"]
-[ext_resource type="PackedScene" uid="uid://bcmwecja0v2g0" path="res://Objects/Dialog.tscn" id="16_yn4up"]
+[ext_resource type="Texture2D" uid="uid://cq4u25gduygjx" path="res://Sprites/ChildRoom/Child_Wall_3.jpg" id="15_hckvx"]
+[ext_resource type="Texture2D" uid="uid://h3bqvfx7vdky" path="res://Sprites/ChildRoom/Child_Wall_3_ref.jpg" id="16_p3cvj"]
+[ext_resource type="Texture2D" uid="uid://cu1hd6hcflbsr" path="res://Sprites/ChildRoom/Child_poster_wall_3.png" id="17_m5y58"]
+[ext_resource type="Texture2D" uid="uid://n6plrwl2tafs" path="res://Sprites/ChildRoom/Child_Wall_4.jpg" id="18_7f463"]
+[ext_resource type="PackedScene" uid="uid://bchm3ikt1hurk" path="res://Objects/Zoom.tscn" id="18_wlfgo"]
+[ext_resource type="Texture2D" uid="uid://bfusx1yfs7amd" path="res://Sprites/ChildRoom/Child_Wall_4_ref.jpg" id="19_4qu77"]
+[ext_resource type="Texture2D" uid="uid://qudenkepig3i" path="res://Sprites/ChildRoom/Child_rabbit_asset.png" id="20_si2n5"]
 
 [node name="Room" type="Node2D"]
 
@@ -48,8 +53,18 @@ position = Vector2(920, 208)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ye8c3")
 
-[node name="Button" parent="Walls/Wall1/Posters" instance=ExtResource("4_qr5pw")]
-isGoal = true
+[node name="Button" parent="Walls/Wall1/Posters" node_paths=PackedStringArray("zoomScreen") instance=ExtResource("4_qr5pw")]
+actions = Array[String](["zoom"])
+zoomScreen = NodePath("../../ZoomtPosters")
+
+[node name="ZoomtPosters" parent="Walls/Wall1" instance=ExtResource("18_wlfgo")]
+visible = false
+layout_mode = 0
+color = Color(0.0862745, 0.0862745, 0.0862745, 0.584314)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall1/ZoomtPosters"]
+position = Vector2(640, 360)
+texture = ExtResource("3_ye8c3")
 
 [node name="Wall2" type="Control" parent="Walls"]
 unique_name_in_owner = true
@@ -145,12 +160,26 @@ color = Color(0.403922, 0.32549, 0.121569, 1)
 
 [node name="Label" type="Label" parent="Walls/Wall3"]
 layout_mode = 0
-offset_left = 616.0
-offset_top = 280.0
-offset_right = 673.0
-offset_bottom = 420.0
-theme_override_font_sizes/font_size = 100
-text = "3"
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_p3cvj")
+
+[node name="CatPoster" type="Sprite2D" parent="Walls/Wall3"]
+position = Vector2(349, 175)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_m5y58")
+
+[node name="Button" parent="Walls/Wall3/CatPoster" node_paths=PackedStringArray("zoomScreen") instance=ExtResource("4_qr5pw")]
+actions = Array[String](["zoom"])
+zoomScreen = NodePath("../../ZoomCatPoster")
+
+[node name="ZoomCatPoster" parent="Walls/Wall3" instance=ExtResource("18_wlfgo")]
+layout_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall3/ZoomCatPoster"]
+position = Vector2(640, 360)
+texture = ExtResource("17_m5y58")
 
 [node name="Wall4" type="Control" parent="Walls"]
 unique_name_in_owner = true
