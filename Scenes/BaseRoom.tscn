@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://idn0n12031pq"]
+[gd_scene load_steps=25 format=3 uid="uid://idn0n12031pq"]
 
 [ext_resource type="Script" path="res://Scripts/WallManager.gd" id="1_0p5fu"]
 [ext_resource type="Texture2D" uid="uid://cfd28qoq4s85k" path="res://Sprites/ChildRoom/Child_Wall_1.jpg" id="2_emfwi"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://wyux7fhwimpu" path="res://Sprites/arrow.png" id="5_wdsj0"]
 [ext_resource type="Texture2D" uid="uid://dp04sta5g2pc5" path="res://Sprites/ChildRoom/Child_Wall_2_ref.jpg" id="6_4205b"]
 [ext_resource type="Texture2D" uid="uid://1f6e5hrce1c0" path="res://Sprites/ChildRoom/Child_cat.png" id="7_020rt"]
-[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="7_iiu4h"]
 [ext_resource type="AudioStream" uid="uid://cdl410y3vd2m7" path="res://Audio/cat.wav" id="8_336rk"]
 [ext_resource type="Texture2D" uid="uid://cdo82vi0s1j5x" path="res://Sprites/ChildRoom/Child_monkey.png" id="9_kbv46"]
 [ext_resource type="AudioStream" uid="uid://du5nmljdq7kqd" path="res://Audio/monkey.wav" id="10_uh400"]
@@ -23,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bchm3ikt1hurk" path="res://Objects/Zoom.tscn" id="18_wlfgo"]
 [ext_resource type="Texture2D" uid="uid://bfusx1yfs7amd" path="res://Sprites/ChildRoom/Child_Wall_4_ref.jpg" id="19_4qu77"]
 [ext_resource type="Texture2D" uid="uid://qudenkepig3i" path="res://Sprites/ChildRoom/Child_rabbit_asset.png" id="20_si2n5"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="23_njele"]
+[ext_resource type="PackedScene" uid="uid://b32uclnegupxv" path="res://Scenes/PuzzleRabbit.tscn" id="24_xaoev"]
 
 [node name="Room" type="Node2D"]
 
@@ -61,7 +62,6 @@ zoomScreen = NodePath("../../ZoomtPosters")
 [node name="ZoomtPosters" parent="Walls/Wall1" instance=ExtResource("18_wlfgo")]
 visible = false
 layout_mode = 0
-color = Color(0.0862745, 0.0862745, 0.0862745, 0.584314)
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls/Wall1/ZoomtPosters"]
 position = Vector2(640, 360)
@@ -210,6 +210,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("20_si2n5")
 
 [node name="Button" parent="Walls/Wall4/Rabbit" instance=ExtResource("4_qr5pw")]
+isGoal = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -230,8 +231,8 @@ scale = Vector2(0.117188, 0.117188)
 texture_normal = ExtResource("5_wdsj0")
 flip_h = true
 
-[node name="SceneTransition" parent="." instance=ExtResource("7_iiu4h")]
-visible = false
+[node name="SceneTransition" parent="." instance=ExtResource("23_njele")]
+next_scene = ExtResource("24_xaoev")
 
 [connection signal="pressed" from="CanvasLayer/LeftArrow" to="Walls" method="_on_left_arrow_pressed"]
 [connection signal="pressed" from="CanvasLayer/RightArrow" to="Walls" method="_on_right_arrow_pressed"]

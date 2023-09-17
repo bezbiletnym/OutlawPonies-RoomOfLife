@@ -1,18 +1,36 @@
-[gd_scene load_steps=12 format=3 uid="uid://b32uclnegupxv"]
+[gd_scene load_steps=28 format=3 uid="uid://b32uclnegupxv"]
 
 [ext_resource type="PackedScene" uid="uid://di4q12vyggwbe" path="res://Objects/Button.tscn" id="4_3avmc"]
 [ext_resource type="PackedScene" uid="uid://bchm3ikt1hurk" path="res://Objects/Zoom.tscn" id="5_1hk7c"]
 [ext_resource type="Script" path="res://Scripts/RabbitScript.gd" id="5_3gcgj"]
-[ext_resource type="Texture2D" uid="uid://pcky2q071472" path="res://Sprites/ChildRoom/wall4_quest/Wall_4_quest_ref.jpg" id="5_a6p18"]
 [ext_resource type="Texture2D" uid="uid://bj1h3fvba3bf0" path="res://Sprites/ChildRoom/wall4_quest/Wall_4_quest_background.png" id="6_lkn2x"]
 [ext_resource type="Texture2D" uid="uid://d2grd6dbulva8" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_1.png" id="7_wcoql"]
 [ext_resource type="Script" path="res://Scripts/RabbitQuestButton.gd" id="8_bjfer"]
+[ext_resource type="AudioStream" uid="uid://cdl410y3vd2m7" path="res://Audio/cat.wav" id="9_t4egw"]
+[ext_resource type="AudioStream" uid="uid://cqoytatk6carq" path="res://Audio/pig.wav" id="10_l7un0"]
+[ext_resource type="Texture2D" uid="uid://chrwyoh8h4cpb" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_2.png" id="11_andil"]
+[ext_resource type="AudioStream" uid="uid://du5nmljdq7kqd" path="res://Audio/monkey.wav" id="11_kieyq"]
+[ext_resource type="Texture2D" uid="uid://iemovv5eta65" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_3.png" id="12_ndp5e"]
+[ext_resource type="AudioStream" uid="uid://qwr5hh3v1jt5" path="res://Audio/goat.wav" id="13_3hkb8"]
+[ext_resource type="Texture2D" uid="uid://cq3iq8fq0m43x" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_4.png" id="13_c7tty"]
+[ext_resource type="AudioStream" uid="uid://dl4bk7cmew2ue" path="res://Audio/croco.wav" id="14_osbl4"]
+[ext_resource type="Texture2D" uid="uid://5ld8nj3jp554" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_5.png" id="14_p6tsm"]
+[ext_resource type="AudioStream" uid="uid://dgidwp0445dfw" path="res://Audio/tiger.wav" id="15_6tlup"]
+[ext_resource type="Texture2D" uid="uid://c8l64fcvckdfj" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_6.png" id="15_ifuv1"]
+[ext_resource type="Texture2D" uid="uid://du8hcj73isxpl" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_7.png" id="16_dl5hs"]
+[ext_resource type="Texture2D" uid="uid://b6hvl666hg8wk" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_8.png" id="17_qn12s"]
+[ext_resource type="AudioStream" uid="uid://l2yglqu2bi18" path="res://Audio/elephant.wav" id="18_806cp"]
+[ext_resource type="Texture2D" uid="uid://boc78p01hrikj" path="res://Sprites/ChildRoom/wall4_quest/x2_Wall_4_button_9.png" id="18_ylpxg"]
 [ext_resource type="Texture2D" uid="uid://n6plrwl2tafs" path="res://Sprites/ChildRoom/Child_Wall_4.jpg" id="19_qhvbp"]
 [ext_resource type="Texture2D" uid="uid://bfusx1yfs7amd" path="res://Sprites/ChildRoom/Child_Wall_4_ref.jpg" id="20_e6pas"]
+[ext_resource type="AudioStream" uid="uid://dnvcuk8dvqwhd" path="res://Audio/parrot.wav" id="20_yd6l4"]
 [ext_resource type="Texture2D" uid="uid://qudenkepig3i" path="res://Sprites/ChildRoom/Child_rabbit_asset.png" id="21_ef3l4"]
-[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="23_umhwm"]
+[ext_resource type="AudioStream" uid="uid://ssb1w1hntji7" path="res://Audio/snake.ogg" id="22_e7tru"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="27_ej1wo"]
 
 [node name="Room" type="Node2D"]
+
+[node name="SceneTransition" parent="." instance=ExtResource("27_ej1wo")]
 
 [node name="Wall4" type="Control" parent="."]
 unique_name_in_owner = true
@@ -45,30 +63,187 @@ texture = ExtResource("21_ef3l4")
 script = ExtResource("5_3gcgj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Zoom"]
-position = Vector2(328, 320)
+position = Vector2(328, 356)
 texture = ExtResource("21_ef3l4")
 
-[node name="QuestRef" type="Sprite2D" parent="Zoom"]
-position = Vector2(944, 344)
-texture = ExtResource("5_a6p18")
+[node name="Quest" type="Sprite2D" parent="Zoom"]
+position = Vector2(896, 368)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_lkn2x")
 
-[node name="Pig" type="Sprite2D" parent="Zoom/QuestRef"]
-position = Vector2(-186, -166)
+[node name="Pig" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(-194, -174)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_wcoql")
 
-[node name="Button" parent="Zoom/QuestRef/Pig" instance=ExtResource("4_3avmc")]
+[node name="Pig" parent="Zoom/Quest/Pig" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.273026
+anchor_top = -0.299342
+anchor_right = 0.832237
+anchor_bottom = 0.805921
 offset_left = -73.0
 offset_top = -73.0
 offset_right = 231.0
 offset_bottom = 231.0
 script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("10_l7un0")
+metadata/_edit_use_anchors_ = true
 
-[node name="Quest" type="Sprite2D" parent="Zoom"]
-visible = false
-position = Vector2(920, 352)
+[node name="Tiger" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(0, -174)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_lkn2x")
+texture = ExtResource("11_andil")
 
-[node name="SceneTransition" parent="." instance=ExtResource("23_umhwm")]
-visible = false
+[node name="Tiger" parent="Zoom/Quest/Tiger" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.286184
+anchor_top = -0.299342
+anchor_right = 0.819079
+anchor_bottom = 0.805921
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 231.0
+offset_bottom = 231.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("15_6tlup")
+metadata/_edit_use_anchors_ = true
+
+[node name="Crocodile" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(192, -176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_ndp5e")
+
+[node name="Crocodile" parent="Zoom/Quest/Crocodile" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.286184
+anchor_top = -0.286184
+anchor_right = 0.819079
+anchor_bottom = 0.819079
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 231.0
+offset_bottom = 231.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("14_osbl4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Monkey" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(-194, -1.00009)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_c7tty")
+
+[node name="Monkey" parent="Zoom/Quest/Monkey" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.273026
+anchor_top = -0.279605
+anchor_right = 0.832237
+anchor_bottom = 0.825658
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 231.0
+offset_bottom = 231.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("11_kieyq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Elephant" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(0, -1.00009)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_p6tsm")
+
+[node name="Elephant" parent="Zoom/Quest/Elephant" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.286184
+anchor_top = -0.279605
+anchor_right = 0.819079
+anchor_bottom = 0.825658
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 231.0
+offset_bottom = 231.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("18_806cp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parrot" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(192, -2.99997)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_ifuv1")
+
+[node name="Parrot" parent="Zoom/Quest/Parrot" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.286184
+anchor_top = -0.266447
+anchor_right = 0.819079
+anchor_bottom = 0.838816
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 231.0
+offset_bottom = 231.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("20_yd6l4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Snake" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(-194, 174)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_dl5hs")
+
+[node name="Snake" parent="Zoom/Quest/Snake" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.273026
+anchor_top = -0.273026
+anchor_right = 0.832237
+anchor_bottom = 0.832237
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 231.0
+offset_bottom = 231.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("22_e7tru")
+metadata/_edit_use_anchors_ = true
+
+[node name="Cat" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(0, 174)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_qn12s")
+
+[node name="Cat" parent="Zoom/Quest/Cat" instance=ExtResource("4_3avmc")]
+anchors_preset = -1
+anchor_left = -0.286184
+anchor_top = -0.273026
+anchor_right = 0.819079
+anchor_bottom = 0.832237
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 231.0
+offset_bottom = 231.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("9_t4egw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Goat" type="Sprite2D" parent="Zoom/Quest"]
+position = Vector2(192, 172)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_ylpxg")
+
+[node name="Goat" parent="Zoom/Quest/Goat" instance=ExtResource("4_3avmc")]
+offset_left = -160.0
+offset_top = -152.0
+offset_right = 480.0
+offset_bottom = 488.0
+script = ExtResource("8_bjfer")
+actions = Array[String](["sound"])
+soundFile = ExtResource("13_3hkb8")
+
+[node name="SceneTransition" parent="Zoom" instance=ExtResource("27_ej1wo")]
+layout_mode = 0

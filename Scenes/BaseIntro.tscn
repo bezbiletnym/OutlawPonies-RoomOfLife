@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://xjy84q8avlnc" path="res://Sprites/ChildRoom/Child_bear_asset.png" id="3_qc6yv"]
 [ext_resource type="PackedScene" uid="uid://di4q12vyggwbe" path="res://Objects/Button.tscn" id="4_l5hao"]
 [ext_resource type="PackedScene" uid="uid://bcmwecja0v2g0" path="res://Objects/Dialog.tscn" id="5_aaf8e"]
-[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="6_y13i1"]
-[ext_resource type="PackedScene" uid="uid://idn0n12031pq" path="res://Scenes/BaseRoom.tscn" id="7_uwpi4"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="6_mw5kp"]
+[ext_resource type="PackedScene" uid="uid://idn0n12031pq" path="res://Scenes/BaseRoom.tscn" id="7_h0ju0"]
 
 [node name="Room" type="Node2D"]
 
@@ -52,5 +52,5 @@ dialog = NodePath("../../Dialog")
 speakerName = "Мишка"
 dialogText = Array[String](["Привет, маленький исследователь! Готов ли ты к захватывающему приключению? Нам предстоит самое невероятное путешествие вместе.", "Посмотри на все эти игрушки и сокровища. У каждого из них есть своя история и секрет, тебе предстоит открыть их все.", "Давай отправимся в путешествие!"])
 
-[node name="SceneTransition" parent="." instance=ExtResource("6_y13i1")]
-next_scene = ExtResource("7_uwpi4")
+[node name="SceneTransition" parent="." instance=ExtResource("6_mw5kp")]
+next_scene = ExtResource("7_h0ju0")
