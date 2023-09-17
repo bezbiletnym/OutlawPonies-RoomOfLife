@@ -1,5 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://idn0n12031pq"]
 
+[ext_resource type="Script" path="res://Scripts/WallManager.gd" id="1_hafta"]
+[ext_resource type="Texture2D" uid="uid://thco2myabj88" path="res://Sprites/ChildRoom/Child_Wall_1_ref.jpg" id="2_b5jw8"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="2_ollqm"]
+[ext_resource type="Texture2D" uid="uid://wyux7fhwimpu" path="res://Sprites/arrow.png" id="2_rrdd6"]
+[ext_resource type="Texture2D" uid="uid://dp4h7k2uvo28o" path="res://Sprites/ChildRoom/Child_posters_wall_1.png" id="3_8ilpt"]
+[ext_resource type="Script" path="res://Scripts/ArrowScript.gd" id="3_cckgv"]
+[ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="3_fme5s"]
+[ext_resource type="PackedScene" uid="uid://di4q12vyggwbe" path="res://Objects/Button.tscn" id="4_hyqm8"]
+[ext_resource type="PackedScene" uid="uid://dljwsjpl84nee" path="res://Scenes/BaseIntro.tscn" id="9_jhefb"]
+
 [node name="Room" type="Node2D"]
 
 [node name="Walls" type="Control" parent="." node_paths=PackedStringArray("walls")]
@@ -7,6 +17,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
+script = ExtResource("1_hafta")
 walls = [NodePath("Wall1"), NodePath("Wall2"), NodePath("Wall3"), NodePath("Wall4")]
 currentWall = 1
 
@@ -38,7 +49,7 @@ position = Vector2(920, 208)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_8ilpt")
 
-[node name="Button" parent="Walls/Wall1/Posters"]
+[node name="Button" parent="Walls/Wall1/Posters" instance=ExtResource("4_hyqm8")]
 offset_left = -224.0
 offset_top = -336.0
 offset_right = 576.0
@@ -134,7 +145,9 @@ texture_normal = ExtResource("2_rrdd6")
 flip_h = true
 script = ExtResource("3_cckgv")
 
-[node name="SceneTransition" parent="."]
+[node name="SceneTransition" parent="." instance=ExtResource("2_ollqm")]
+script = ExtResource("3_fme5s")
+next_scene = ExtResource("9_jhefb")
 
 [connection signal="_arrowPressed" from="CanvasLayer/LeftArrow" to="Walls" method="_on_left_arrow__arrow_pressed"]
 [connection signal="pressed" from="CanvasLayer/LeftArrow" to="CanvasLayer/LeftArrow" method="_on_pressed"]

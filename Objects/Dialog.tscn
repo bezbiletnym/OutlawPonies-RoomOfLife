@@ -1,9 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcmwecja0v2g0"]
 
+[ext_resource type="Script" path="res://Scripts/Dialog.gd" id="1_kv3fc"]
+[ext_resource type="FontFile" uid="uid://dokgkoyhcd7pu" path="res://Fonts/CoopBlack_Cyrillic_0.ttf" id="2_ns874"]
+
 [node name="Dialog" type="ColorRect"]
 offset_right = 1288.0
 offset_bottom = 720.0
 color = Color(1, 1, 1, 0)
+script = ExtResource("1_kv3fc")
 speakerName = "Мишка"
 dialogText = Array[String](["Ебаный рот этого казино.", "Вы кто такие, чтобы это делать нахуй?", "У вас диллер есть, чтобы это делать!"])
 
@@ -22,6 +26,7 @@ offset_right = 309.0
 offset_bottom = 56.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ns874")
 theme_override_font_sizes/font_size = 40
 text = "Болванка:"
 vertical_alignment = 1
@@ -34,6 +39,7 @@ offset_right = 1256.0
 offset_bottom = 160.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ns874")
 theme_override_font_sizes/font_size = 25
 text = "Это кастомный текст, всем привет! Это кастомный текст, всем привет! Это кастомный текст, всем привет!Это кастомный текст, всем привет!Это кастомный текст, всем привет!"
 autowrap_mode = 2
