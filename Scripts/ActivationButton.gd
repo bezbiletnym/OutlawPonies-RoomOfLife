@@ -33,6 +33,8 @@ func _on_pressed():
 				await play_sound()
 			"dialog":
 				await show_dialog()
+			"zoom":
+				await show_zoom()
 
 	if isGoal == true:
 		sceneManager.transition_to()
@@ -50,3 +52,6 @@ func show_dialog():
 		await dialog.show_dialog()
 	else:
 		print_debug("NO_DIALOG")
+
+func show_zoom():
+	pass
