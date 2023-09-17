@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwxfn51risogs"]
+[gd_scene load_steps=7 format=3 uid="uid://cwxfn51risogs"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_4ek5o"]
 [ext_resource type="Texture2D" uid="uid://bjiinwsq46wn0" path="res://Sprites/logo-no-background.png" id="1_8kufi"]
 [ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="2_brpdq"]
+[ext_resource type="FontFile" uid="uid://dokgkoyhcd7pu" path="res://Fonts/CoopBlack_Cyrillic_0.ttf" id="2_q0b47"]
 [ext_resource type="AudioStream" uid="uid://dilc7tpc6ssnx" path="res://Audio/main_theme.mp3" id="3_vk72m"]
 [ext_resource type="PackedScene" uid="uid://dljwsjpl84nee" path="res://Scenes/BaseIntro.tscn" id="5_a1ogs"]
 
@@ -21,6 +22,7 @@ offset_right = 811.0
 offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_q0b47")
 theme_override_font_sizes/font_size = 64
 text = " ИГРАТЬ "
 

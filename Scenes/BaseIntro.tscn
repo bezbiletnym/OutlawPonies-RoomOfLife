@@ -50,7 +50,7 @@ dialog = NodePath("../../Dialog")
 
 [node name="Dialog" parent="." instance=ExtResource("5_aaf8e")]
 speakerName = "Мишка"
-dialogText = Array[String](["Ну здарова отец.", "Че зыришь", "Иди дальше"])
+dialogText = Array[String](["Привет, маленький исследователь! Готов ли ты к захватывающему приключению? Нам предстоит самое невероятное путешествие вместе.", "Посмотри на все эти игрушки и сокровища. У каждого из них есть своя история и секрет, тебе предстоит открыть их все.", "Давай отправимся в путешествие!"])
 
 [node name="SceneTransition" parent="." instance=ExtResource("6_y13i1")]
 next_scene = ExtResource("7_uwpi4")
