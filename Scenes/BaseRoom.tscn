@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://idn0n12031pq"]
+[gd_scene load_steps=18 format=3 uid="uid://idn0n12031pq"]
 
 [ext_resource type="Script" path="res://Scripts/WallManager.gd" id="1_0p5fu"]
 [ext_resource type="Texture2D" uid="uid://cfd28qoq4s85k" path="res://Sprites/ChildRoom/Child_Wall_1.jpg" id="2_emfwi"]
 [ext_resource type="Texture2D" uid="uid://dp4h7k2uvo28o" path="res://Sprites/ChildRoom/Child_posters_wall_1.png" id="3_ye8c3"]
 [ext_resource type="PackedScene" uid="uid://di4q12vyggwbe" path="res://Objects/Button.tscn" id="4_qr5pw"]
 [ext_resource type="Texture2D" uid="uid://5tc8jnb6oqwb" path="res://Sprites/ChildRoom/Child_Wall_2.jpg" id="5_gqmde"]
-[ext_resource type="Texture2D" uid="uid://wyux7fhwimpu" path="res://Sprites/arrow.png" id="5_wdsj0"]
 [ext_resource type="Texture2D" uid="uid://dp04sta5g2pc5" path="res://Sprites/ChildRoom/Child_Wall_2_ref.jpg" id="6_4205b"]
 [ext_resource type="Texture2D" uid="uid://1f6e5hrce1c0" path="res://Sprites/ChildRoom/Child_cat.png" id="7_020rt"]
 [ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="7_iiu4h"]
@@ -16,12 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://qwr5hh3v1jt5" path="res://Audio/goat.wav" id="12_1jwy6"]
 [ext_resource type="Texture2D" uid="uid://dgkvckl11awia" path="res://Sprites/ChildRoom/Child_tiger.png" id="13_pf2dk"]
 [ext_resource type="AudioStream" uid="uid://dgidwp0445dfw" path="res://Audio/tiger.wav" id="14_ngphw"]
-[ext_resource type="Texture2D" uid="uid://cq4u25gduygjx" path="res://Sprites/ChildRoom/Child_Wall_3.jpg" id="15_hckvx"]
-[ext_resource type="Texture2D" uid="uid://h3bqvfx7vdky" path="res://Sprites/ChildRoom/Child_Wall_3_ref.jpg" id="16_p3cvj"]
-[ext_resource type="Texture2D" uid="uid://cu1hd6hcflbsr" path="res://Sprites/ChildRoom/Child_poster_wall_3.png" id="17_m5y58"]
-[ext_resource type="Texture2D" uid="uid://n6plrwl2tafs" path="res://Sprites/ChildRoom/Child_Wall_4.jpg" id="18_7f463"]
-[ext_resource type="Texture2D" uid="uid://bfusx1yfs7amd" path="res://Sprites/ChildRoom/Child_Wall_4_ref.jpg" id="19_4qu77"]
-[ext_resource type="Texture2D" uid="uid://qudenkepig3i" path="res://Sprites/ChildRoom/Child_rabbit_asset.png" id="20_si2n5"]
+[ext_resource type="Texture2D" uid="uid://ourpeu342o7m" path="res://Sprites/arrow_nobck.png" id="15_abmyg"]
+[ext_resource type="PackedScene" uid="uid://bcmwecja0v2g0" path="res://Objects/Dialog.tscn" id="16_yn4up"]
 
 [node name="Room" type="Node2D"]
 
@@ -58,7 +53,6 @@ isGoal = true
 
 [node name="Wall2" type="Control" parent="Walls"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
@@ -84,52 +78,56 @@ position = Vector2(286, 446)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_020rt")
 
-[node name="Button" parent="Walls/Wall2/Cat" instance=ExtResource("4_qr5pw")]
+[node name="Button" parent="Walls/Wall2/Cat" node_paths=PackedStringArray("dialog") instance=ExtResource("4_qr5pw")]
 offset_left = -76.0
 offset_top = -60.0
 offset_right = 244.0
 offset_bottom = 196.0
-actions = Array[String](["sound"])
+actions = Array[String](["sound", "dialog"])
 soundFile = ExtResource("8_336rk")
+dialog = NodePath("../../../../Dialogs/CatDialog")
 
 [node name="Monkey" type="Sprite2D" parent="Walls/Wall2"]
 position = Vector2(388, 451)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_kbv46")
 
-[node name="Button" parent="Walls/Wall2/Monkey" instance=ExtResource("4_qr5pw")]
+[node name="Button" parent="Walls/Wall2/Monkey" node_paths=PackedStringArray("dialog") instance=ExtResource("4_qr5pw")]
 offset_left = -88.0
 offset_top = -70.0
 offset_right = 256.0
 offset_bottom = 206.0
-actions = Array[String](["sound"])
+actions = Array[String](["sound", "dialog"])
 soundFile = ExtResource("10_uh400")
+dialog = NodePath("../../../../Dialogs/MonkeyDialog")
 
 [node name="Goat" type="Sprite2D" parent="Walls/Wall2"]
 position = Vector2(479, 445)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_v8mdf")
 
-[node name="Button" parent="Walls/Wall2/Goat" instance=ExtResource("4_qr5pw")]
+[node name="Button" parent="Walls/Wall2/Goat" node_paths=PackedStringArray("dialog") instance=ExtResource("4_qr5pw")]
 offset_left = -62.0
 offset_top = -90.0
 offset_right = 258.0
 offset_bottom = 294.0
-actions = Array[String](["sound"])
+actions = Array[String](["sound", "dialog"])
 soundFile = ExtResource("12_1jwy6")
+dialog = NodePath("../../../../Dialogs/GoatDialog")
 
 [node name="Tiger" type="Sprite2D" parent="Walls/Wall2"]
 position = Vector2(624, 450)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_pf2dk")
 
-[node name="Button" parent="Walls/Wall2/Tiger" instance=ExtResource("4_qr5pw")]
+[node name="Button" parent="Walls/Wall2/Tiger" node_paths=PackedStringArray("dialog") instance=ExtResource("4_qr5pw")]
 offset_left = -62.0
 offset_top = -90.0
 offset_right = 258.0
 offset_bottom = 294.0
-actions = Array[String](["sound"])
+actions = Array[String](["sound", "dialog"])
 soundFile = ExtResource("14_ngphw")
+dialog = NodePath("../../../../Dialogs/TigerDialog")
 
 [node name="Wall3" type="Control" parent="Walls"]
 unique_name_in_owner = true
@@ -139,56 +137,43 @@ anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="TextureRect" type="TextureRect" parent="Walls/Wall3"]
+[node name="ColorRect2" type="ColorRect" parent="Walls/Wall3"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("15_hckvx")
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.403922, 0.32549, 0.121569, 1)
 
-[node name="TextureRef" type="TextureRect" parent="Walls/Wall3"]
-visible = false
+[node name="Label" type="Label" parent="Walls/Wall3"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_p3cvj")
-
-[node name="CatPoster" type="Sprite2D" parent="Walls/Wall3"]
-position = Vector2(349, 175)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("17_m5y58")
-
-[node name="Button" parent="Walls/Wall3/CatPoster" instance=ExtResource("4_qr5pw")]
+offset_left = 616.0
+offset_top = 280.0
+offset_right = 673.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 100
+text = "3"
 
 [node name="Wall4" type="Control" parent="Walls"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="TextureRect" type="TextureRect" parent="Walls/Wall4"]
+[node name="ColorRect2" type="ColorRect" parent="Walls/Wall4"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_7f463")
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.513726, 0.247059, 0.203922, 1)
 
-[node name="TextureRef" type="TextureRect" parent="Walls/Wall4"]
-visible = false
+[node name="Label" type="Label" parent="Walls/Wall4"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("19_4qu77")
-
-[node name="Rabbit" type="Sprite2D" parent="Walls/Wall4"]
-position = Vector2(229, 359)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("20_si2n5")
-
-[node name="Button" parent="Walls/Wall4/Rabbit" instance=ExtResource("4_qr5pw")]
+offset_left = 616.0
+offset_top = 280.0
+offset_right = 673.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 100
+text = "4"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -198,7 +183,9 @@ offset_top = 296.0
 offset_right = 1088.0
 offset_bottom = 1320.0
 scale = Vector2(0.117188, 0.117188)
-texture_normal = ExtResource("5_wdsj0")
+texture_normal = ExtResource("15_abmyg")
+stretch_mode = 0
+flip_h = true
 
 [node name="RightArrow" type="TextureButton" parent="CanvasLayer"]
 offset_left = 1096.0
@@ -206,8 +193,34 @@ offset_top = 296.0
 offset_right = 2120.0
 offset_bottom = 1320.0
 scale = Vector2(0.117188, 0.117188)
-texture_normal = ExtResource("5_wdsj0")
-flip_h = true
+texture_normal = ExtResource("15_abmyg")
+stretch_mode = 0
+
+[node name="Dialogs" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CatDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
+layout_mode = 0
+speakerName = "Кошечка"
+dialogText = Array[String](["мяяяу"])
+
+[node name="TigerDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
+layout_mode = 0
+speakerName = "Тигр"
+dialogText = Array[String](["ррррр"])
+
+[node name="GoatDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
+layout_mode = 0
+speakerName = "Козочка"
+dialogText = Array[String](["бееее"])
+
+[node name="MonkeyDialog" parent="Dialogs" instance=ExtResource("16_yn4up")]
+layout_mode = 0
+speakerName = "Обезъянка"
+dialogText = Array[String](["уаааа"])
 
 [node name="SceneTransition" parent="." instance=ExtResource("7_iiu4h")]
 visible = false
