@@ -1,5 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://di4q12vyggwbe"]
 
+[ext_resource type="Script" path="res://Scripts/ActivationButton.gd" id="1_vcbjd"]
+
 [sub_resource type="Animation" id="Animation_h4008"]
 length = 0.001
 tracks/0/type = "value"
@@ -26,9 +28,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.217638),
 "update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(0.515, 0.515)]
+"values": [Vector2(0.5, 0.5), Vector2(0.6, 0.6)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vp8y6"]
@@ -37,14 +39,13 @@ _data = {
 "hover": SubResource("Animation_6ci1x")
 }
 
-[node name="Button" type="TextureButton" node_paths=PackedStringArray("anim_player")]
+[node name="Button" type="TextureButton"]
 offset_left = -178.0
 offset_top = -384.0
 offset_right = 686.0
 offset_bottom = 992.0
 scale = Vector2(0.5, 0.5)
-anim_player = NodePath("AnimationPlayer")
-isGoal = true
+script = ExtResource("1_vcbjd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")

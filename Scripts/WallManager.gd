@@ -1,6 +1,6 @@
 extends Control
 
-@export var walls: Array[Control] = []
+@onready var walls: Array[Node] = [$Wall1, $Wall2, $Wall3, $Wall4]
 @export var currentWall: int
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,8 +29,8 @@ func check_visibility():
 		else:
 			wall.visible = false
 			
-func _on_left_arrow__arrow_pressed():
+func _on_left_arrow_pressed():
 	_turnToWall(-1)
 
-func _on_right_arrow__arrow_pressed():
+func _on_right_arrow_pressed():
 	_turnToWall(1)

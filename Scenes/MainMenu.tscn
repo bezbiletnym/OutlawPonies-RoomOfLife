@@ -1,6 +1,13 @@
-[gd_scene format=3 uid="uid://cwxfn51risogs"]
+[gd_scene load_steps=6 format=3 uid="uid://cwxfn51risogs"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_4ek5o"]
+[ext_resource type="Texture2D" uid="uid://bjiinwsq46wn0" path="res://Sprites/logo-no-background.png" id="1_8kufi"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="2_brpdq"]
+[ext_resource type="AudioStream" uid="uid://dilc7tpc6ssnx" path="res://Audio/main_theme.mp3" id="3_vk72m"]
+[ext_resource type="PackedScene" uid="uid://dljwsjpl84nee" path="res://Scenes/BaseIntro.tscn" id="5_a1ogs"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_4ek5o")
 
 [node name="PlayButton" type="Button" parent="."]
 anchors_preset = 8
@@ -20,9 +27,14 @@ text = " ИГРАТЬ "
 [node name="Logo-no-background" type="Sprite2D" parent="."]
 position = Vector2(93, 83)
 scale = Vector2(0.134, 0.152655)
+texture = ExtResource("1_8kufi")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vk72m")
 autoplay = true
+
+[node name="SceneTransition" parent="." instance=ExtResource("2_brpdq")]
+next_scene = ExtResource("5_a1ogs")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

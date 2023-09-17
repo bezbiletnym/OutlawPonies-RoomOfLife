@@ -1,12 +1,12 @@
 extends TextureButton
 class_name InteractiveObject
 
-@export var anim_player: AnimationPlayer
 @export var isGoal: bool
 @export var actions: Array[String]
 @export var soundFile: Resource
 @onready var sceneManager = get_node("/root/Room/SceneTransition") #Верхняя нода всех комнат и вступлений должна называться Room
 @onready var audio = $AudioStreamPlayer
+@onready var anim_player = $AnimationPlayer
 @export var dialog: Node
 # Called when the node enters the scene tree for the first time.
 func _ready():

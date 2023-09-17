@@ -1,4 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dljwsjpl84nee"]
+[gd_scene load_steps=8 format=3 uid="uid://dljwsjpl84nee"]
+
+[ext_resource type="Texture2D" uid="uid://cdedh5m82i7mk" path="res://Sprites/ChildRoom/Child_scene_1_background.jpg" id="1_hgbry"]
+[ext_resource type="Texture2D" uid="uid://bmd1nh5hfosca" path="res://Sprites/ChildRoom/Child_scene_1_background_ref.jpg" id="2_tx2ht"]
+[ext_resource type="Texture2D" uid="uid://xjy84q8avlnc" path="res://Sprites/ChildRoom/Child_bear_asset.png" id="3_qc6yv"]
+[ext_resource type="PackedScene" uid="uid://di4q12vyggwbe" path="res://Objects/Button.tscn" id="4_l5hao"]
+[ext_resource type="PackedScene" uid="uid://bcmwecja0v2g0" path="res://Objects/Dialog.tscn" id="5_aaf8e"]
+[ext_resource type="PackedScene" uid="uid://gju0rb3k67eb" path="res://Objects/SceneTransition.tscn" id="6_y13i1"]
+[ext_resource type="PackedScene" uid="uid://idn0n12031pq" path="res://Scenes/BaseRoom.tscn" id="7_uwpi4"]
 
 [node name="Room" type="Node2D"]
 
@@ -14,6 +22,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hgbry")
 
 [node name="TextureRef" type="TextureRect" parent="Wall"]
 visible = false
@@ -21,6 +30,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tx2ht")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -31,7 +41,16 @@ offset_bottom = 40.0
 [node name="Bear" type="Sprite2D" parent="."]
 position = Vector2(592, 496)
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qc6yv")
 
-[node name="Button" parent="Bear" node_paths=PackedStringArray("dialog")]
-actions = Array[String](["sound", "dialog"])
+[node name="Button" parent="Bear" node_paths=PackedStringArray("dialog") instance=ExtResource("4_l5hao")]
+isGoal = true
+actions = Array[String](["dialog"])
 dialog = NodePath("../../Dialog")
+
+[node name="Dialog" parent="." instance=ExtResource("5_aaf8e")]
+speakerName = "Мишка"
+dialogText = Array[String](["Ну здарова отец.", "Че зыришь", "Иди дальше"])
+
+[node name="SceneTransition" parent="." instance=ExtResource("6_y13i1")]
+next_scene = ExtResource("7_uwpi4")

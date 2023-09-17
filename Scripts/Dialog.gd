@@ -9,6 +9,7 @@ var currentSlide = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.visible = false
+	currentSlide = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +23,7 @@ func _input(event):
 func show_dialog():
 	nameLabel.text = speakerName
 	textLabel.text = dialogText[currentSlide]
+	print_debug("curSlide: ", currentSlide)
 	self.visible = true
 	await clicked
 	currentSlide += 1
